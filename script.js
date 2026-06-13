@@ -59,15 +59,11 @@ Object.keys(playlists).forEach(key => {
         `;
 
         card.querySelector("button").onclick = (e) => {
-
+        
             e.stopPropagation();
-
-            flyDroneTo(card,()=>{
-
-                window.open(song.link,"_blank");
-
-            });
-
+        
+            window.open(song.link, "_blank");
+        
         };
 
         container.appendChild(card);
