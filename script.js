@@ -45,8 +45,8 @@ Object.keys(playlists).forEach(key => {
                 </div>
                 
                 <button class="playButton">
-                
-                    🛩 Dispatch
+
+                    ▶ Play
                 
                 </button>
                 <h3>${song.title}</h3>
