@@ -1,106 +1,100 @@
 const grid = document.getElementById("hangarGrid");
 
-const playlistPage = document.getElementById("playlistPage");
+Object.keys(playlists).forEach(key => {
 
-const playlistTitle = document.getElementById("playlistTitle");
+    const playlist = playlists[key];
 
-const songList = document.getElementById("songList");
+    const hangar = document.createElement("div");
 
-const hangars = document.getElementById("hangars");
+    hangar.className = "hangar";
 
-const backButton = document.getElementById("backButton");
-
-Object.keys(playlists).forEach(key=>{
-
-    const p = playlists[key];
-
-    const card = document.createElement("div");
-
-    card.className="hangar";
-
-    card.innerHTML=`
-
-        <h3>${p.title}</h3>
-
-        <p>${p.description}</p>
+    hangar.innerHTML = `
+        <h3>${playlist.title}</h3>
+        <p>${playlist.description}</p>
 
         <br>
 
-        ${p.songs.length} songs
+        ${playlist.songs.length} songs
 
+        <div class="songContainer"></div>
     `;
 
-    card.onclick=()=>showPlaylist(key);
+    const container = hangar.querySelector(".songContainer");
 
-    grid.appendChild(card);
+    playlist.songs.forEach(song => {
 
-});
+        const card = document.createElement("div");
 
-function showPlaylist(key){
+        card.className = "songCard";
 
-    hangars.style.display="none";
+        card.innerHTML = `
+            <div class="songInfo">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
 
-    playlistPage.style.display="block";
-
-    const p = playlists[key];
-
-    playlistTitle.innerHTML=p.title;
-
-    songList.innerHTML="";
-
-    p.songs.forEach(song=>{
-
-        const card=document.createElement("div");
-
-        card.className="songCard";
-
-        card.innerHTML=`
-
-        <div class="songInfo">
-
-            <h3>${song.title}</h3>
-
-            <p>${song.artist}</p>
-
-        </div>
-
-        <button class="playButton">
-
-            Play
-
-        </button>
-
+            <button class="playButton">
+                Play
+            </button>
         `;
 
-        card.querySelector("button").onclick=()=>{
+        card.querySelector("button").onclick = (e) => {
 
-            window.open(song.link,"_blank");
+            e.stopPropagation();
+
+            window.open(song.link, "_blank");
+
+        };
+
+        container.appendChild(card);
+
+    });
+
+    hangar.onclick = () => {
+
+        // Close every other hangar
+        document.querySelectorAll(".hangar").forEach(h => {
+
+            if (h !== hangar) {
+
+                h.classList.remove("open");
+
+                h.querySelector(".songContainer").style.display = "none";
+
+            }
+
+        });
+
+        // Toggle current one
+        if (container.style.display === "block") {
+
+            container.style.display = "none";
+
+            hangar.classList.remove("open");
+
+        }
+        else {
+
+            container.style.display = "block";
+
+            hangar.classList.add("open");
 
         }
 
-        songList.appendChild(card);
+    };
 
-    });
+    grid.appendChild(hangar);
 
-    playlistPage.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-}
-
-backButton.onclick=()=>{
-
-    playlistPage.style.display="none";
-
-    hangars.style.display="block";
-
-};
+});
 
 const enterBtn = document.getElementById("enterBtn");
 
 enterBtn.addEventListener("click", () => {
+
     document.getElementById("hangars").scrollIntoView({
+
         behavior: "smooth"
+
     });
+
 });
