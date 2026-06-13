@@ -99,3 +99,11 @@ backButton.onclick=()=>{
     hangars.style.display="block";
 
 };
+
+const enterBtn = document.getElementById("enterBtn");
+
+enterBtn.addEventListener("click", () => {
+    document.getElementById("hangars").scrollIntoView({
+        behavior: "smooth"
+    });
+});
