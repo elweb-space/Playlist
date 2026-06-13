@@ -1,353 +1,101 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+const grid = document.getElementById("hangarGrid");
 
-body{
+const playlistPage = document.getElementById("playlistPage");
 
-    background:#081726;
+const playlistTitle = document.getElementById("playlistTitle");
 
-    color:white;
+const songList = document.getElementById("songList");
 
-    font-family:Poppins,sans-serif;
+const hangars = document.getElementById("hangars");
 
-    overflow-x:hidden;
-}
+const backButton = document.getElementById("backButton");
 
-.sky{
+Object.keys(playlists).forEach(key=>{
 
-    position:fixed;
+    const p = playlists[key];
 
-    inset:0;
+    const card = document.createElement("div");
 
-    overflow:hidden;
+    card.className="hangar";
 
-    z-index:-1;
+    card.innerHTML=`
 
-    background:
+        <h3>${p.title}</h3>
 
-    linear-gradient(
-    #0b2138,
-    #081726);
+        <p>${p.description}</p>
 
-}
+        <br>
 
-/* Radar */
+        ${p.songs.length} songs
 
-.radar{
+    `;
 
-    position:absolute;
+    card.onclick=()=>showPlaylist(key);
 
-    width:800px;
+    grid.appendChild(card);
 
-    height:800px;
+});
 
-    border-radius:50%;
+function showPlaylist(key){
 
-    border:1px solid rgba(0,255,150,.15);
+    hangars.style.display="none";
 
-    left:50%;
+    playlistPage.style.display="block";
 
-    top:40%;
+    const p = playlists[key];
 
-    transform:translate(-50%,-50%);
-}
+    playlistTitle.innerHTML=p.title;
 
-.radar::after{
+    songList.innerHTML="";
 
-    content:"";
+    p.songs.forEach(song=>{
 
-    position:absolute;
+        const card=document.createElement("div");
 
-    width:50%;
+        card.className="songCard";
 
-    height:2px;
+        card.innerHTML=`
 
-    background:lime;
+        <div class="songInfo">
 
-    left:50%;
+            <h3>${song.title}</h3>
 
-    top:50%;
+            <p>${song.artist}</p>
 
-    transform-origin:left;
+        </div>
 
-    animation:spin 6s linear infinite;
+        <button class="playButton">
 
-}
+            Play
 
-@keyframes spin{
+        </button>
 
-    from{
+        `;
 
-        transform:rotate(0deg);
+        card.querySelector("button").onclick=()=>{
 
-    }
+            window.open(song.link,"_blank");
 
-    to{
+        }
 
-        transform:rotate(360deg);
+        songList.appendChild(card);
 
-    }
+    });
 
-}
+    window.scrollTo({
 
-/* Clouds */
+        top:0,
 
-.cloud{
+        behavior:"smooth"
 
-    position:absolute;
-
-    width:180px;
-
-    height:60px;
-
-    background:white;
-
-    opacity:.08;
-
-    border-radius:50px;
+    });
 
 }
 
-.c1{
+backButton.onclick=()=>{
 
-    top:20%;
+    playlistPage.style.display="none";
 
-    animation:cloud 45s linear infinite;
+    hangars.style.display="block";
 
-}
-
-.c2{
-
-    top:45%;
-
-    animation:cloud 65s linear infinite;
-
-}
-
-.c3{
-
-    top:70%;
-
-    animation:cloud 55s linear infinite;
-
-}
-
-@keyframes cloud{
-
-    from{
-
-        left:-250px;
-
-    }
-
-    to{
-
-        left:110%;
-
-    }
-
-}
-
-/* Plane */
-
-.plane{
-
-    position:absolute;
-
-    font-size:50px;
-
-    top:18%;
-
-    left:-100px;
-
-    animation:fly 18s linear infinite;
-
-}
-
-@keyframes fly{
-
-    from{
-
-        transform:translateX(0);
-
-    }
-
-    to{
-
-        transform:translateX(calc(100vw + 200px));
-
-    }
-
-}
-
-/* Header */
-
-header{
-
-    text-align:center;
-
-    padding:50px 20px;
-
-}
-
-header h1{
-
-    font-family:Orbitron;
-
-    font-size:60px;
-
-    color:#70ffe7;
-
-}
-
-header p{
-
-    margin-top:10px;
-
-    color:#ddd;
-
-}
-
-/* Navigation */
-
-nav{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:40px;
-
-    margin-bottom:50px;
-
-}
-
-nav a{
-
-    color:white;
-
-    text-decoration:none;
-
-    transition:.3s;
-
-}
-
-nav a:hover{
-
-    color:#66ffd7;
-
-}
-
-/* Hero */
-
-.hero{
-
-    display:flex;
-
-    justify-content:center;
-
-    padding:30px;
-
-}
-
-.glass{
-
-    width:700px;
-
-    backdrop-filter:blur(20px);
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.15);
-
-    border-radius:20px;
-
-    padding:50px;
-
-    text-align:center;
-
-}
-
-.glass h2{
-
-    font-size:42px;
-
-    margin-bottom:20px;
-
-}
-
-.glass p{
-
-    line-height:1.8;
-
-}
-
-button{
-
-    margin-top:40px;
-
-    padding:15px 40px;
-
-    border:none;
-
-    border-radius:30px;
-
-    background:#28d6b2;
-
-    color:black;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-button:hover{
-
-    transform:scale(1.08);
-
-}
-
-/* Placeholder */
-
-.placeholder{
-
-    padding:80px 10%;
-
-}
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:25px;
-
-    margin-top:40px;
-
-}
-
-.card{
-
-    background:rgba(255,255,255,.08);
-
-    border-radius:18px;
-
-    padding:40px;
-
-    text-align:center;
-
-    transition:.3s;
-
-}
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-}
+};
