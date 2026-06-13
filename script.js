@@ -29,6 +29,26 @@ Object.keys(playlists).forEach(key => {
 
         card.innerHTML = `
             <div class="songInfo">
+
+                    <div class="crate">
+                        📦
+                    </div>
+                
+                    <div>
+                
+                        <h3>${song.title}</h3>
+                
+                        <p>${song.artist}</p>
+                
+                    </div>
+                
+                </div>
+                
+                <button class="playButton">
+                
+                    🛩 Dispatch
+                
+                </button>
                 <h3>${song.title}</h3>
                 <p>${song.artist}</p>
             </div>
