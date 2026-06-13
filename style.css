@@ -582,19 +582,10 @@ button:hover{
 
 .songInfo{
 
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
+    flex:1;
 
 }
 
-.crate{
-
-    font-size:34px;
-
-}
 
 .playButton{
 
