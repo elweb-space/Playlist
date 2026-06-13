@@ -196,7 +196,7 @@ header h1{
 
     font-family:Orbitron;
 
-    font-size:60px;
+    font-size:clamp(36px,6vw,60px);
 
     color:#70ffe7;
 
@@ -254,7 +254,7 @@ nav a:hover{
 
 .glass{
 
-    width:700px;
+    width:min(700px,90%);
 
     backdrop-filter:blur(20px);
 
@@ -665,5 +665,120 @@ button:hover{
     font-size:24px;
 
     line-height:1.7;
+
+}
+
+/* ========================================= */
+/* Responsive Design */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Header */
+    header {
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 38px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    /* Navigation */
+    nav{
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:30px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    /* Hero */
+    .glass {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .glass h2 {
+        font-size: 30px;
+    }
+
+    /* Section titles */
+    .section-title {
+        font-size: 30px;
+    }
+
+    /* Hangars */
+    #hangarGrid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .hangar {
+        padding: 25px;
+    }
+
+    /* Song cards */
+    .songCard {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .songInfo {
+        justify-content: center;
+    }
+
+    .playButton {
+        width: 100%;
+    }
+
+    /* Warehouse */
+    #warehouse {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 250px;
+        gap: 15px;
+    }
+
+    .cargo {
+        width: 70px;
+        height: 70px;
+        font-size: 34px;
+    }
+
+    /* Buttons */
+    button {
+        width: 100%;
+    }
+
+    /* Drone */
+    #drone {
+        font-size: 30px;
+    }
+
+}
+
+/* Very small phones */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .glass h2 {
+        font-size: 24px;
+    }
+
+    .glass {
+        padding: 20px;
+    }
 
 }
