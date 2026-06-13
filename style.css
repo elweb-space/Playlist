@@ -485,3 +485,63 @@ button:hover{
     cursor:pointer;
 
 }
+
+.songContainer{
+
+    margin-top:25px;
+
+    display:none;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    padding-top:20px;
+
+}
+
+.songCard{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px;
+
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.songInfo h3{
+
+    margin-bottom:5px;
+
+}
+
+.songInfo p{
+
+    opacity:.7;
+
+}
+
+.playButton{
+
+    padding:10px 20px;
+
+    border:none;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+}
+
+.hangar.open{
+
+    background:rgba(40,214,178,.15);
+
+}
