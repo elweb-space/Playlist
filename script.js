@@ -222,6 +222,8 @@ missionButton.onclick=()=>{
             setTimeout(() => {
                 card.classList.remove("selectedSong");
             }, 3000);
+
+            }
     
         }, 800);
 
