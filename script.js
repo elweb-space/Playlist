@@ -62,7 +62,11 @@ Object.keys(playlists).forEach(key => {
 
             e.stopPropagation();
 
-            window.open(song.link, "_blank");
+            flyDroneTo(card,()=>{
+
+                window.open(song.link,"_blank");
+
+            });
 
         };
 
@@ -118,3 +122,69 @@ enterBtn.addEventListener("click", () => {
     });
 
 });
+
+const drone = document.getElementById("drone");
+
+function flyDroneTo(element, callback){
+
+    const rect = element.getBoundingClientRect();
+
+    drone.style.left = rect.left + "px";
+
+    drone.style.top = rect.top - 40 + "px";
+
+    setTimeout(callback,2000);
+
+}
+
+const missionButton=document.getElementById("missionButton");
+
+const cargos=document.querySelectorAll(".cargo");
+
+const result=document.getElementById("missionResult");
+
+missionButton.onclick=()=>{
+
+    cargos.forEach(c=>c.classList.remove("selected"));
+
+    const cargo=cargos[Math.floor(Math.random()*cargos.length)];
+
+    cargo.classList.add("selected");
+
+    flyDroneTo(cargo,()=>{
+
+        let allSongs=[];
+
+        Object.values(playlists).forEach(p=>{
+
+            allSongs=allSongs.concat(p.songs);
+
+        });
+
+        const song=allSongs[Math.floor(Math.random()*allSongs.length)];
+
+        result.innerHTML=`
+
+        🚁 Delivery Complete
+
+        <br><br>
+
+        <strong>${song.title}</strong>
+
+        <br>
+
+        ${song.artist}
+
+        <br><br>
+
+        <button onclick="window.open('${song.link}','_blank')">
+
+        Play Song
+
+        </button>
+
+        `;
+
+    });
+
+};
