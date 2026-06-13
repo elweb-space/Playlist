@@ -168,15 +168,15 @@ missionButton.onclick=()=>{
 
         <br><br>
 
-        <strong>${song.title}</strong>
+        <strong>${chosenSong.title}</strong>
 
         <br>
 
-        ${song.artist}
+        ${chosenSong.artist}
 
         <br><br>
 
-        <button onclick="window.open('${song.link}','_blank')">
+        <button onclick="window.open('${chosenSong.link}','_blank')">
 
         Play Song
 
@@ -209,12 +209,14 @@ missionButton.onclick=()=>{
             const card = document.getElementById(
                 `${chosenPlaylist}-${chosenSong.title.replace(/\s+/g, "-")}`
             );
-    
-            card.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-    
+            
+            if (card) {
+            
+                card.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            
             card.classList.add("selectedSong");
     
             setTimeout(() => {
