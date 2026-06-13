@@ -476,13 +476,31 @@ button:hover{
 
 .playButton{
 
-    padding:12px 25px;
+    padding: 8px 16px;
 
-    border-radius:25px;
+    font-size: 14px;
 
-    border:none;
+    border: none;
 
-    cursor:pointer;
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    background: #28d6b2;
+
+    color: black;
+
+    font-weight: 500;
+
+    transition: 0.25s;
+
+    min-width: 80px;
+
+}
+
+.playButton:hover{
+
+    transform: scale(1.05);
 
 }
 
