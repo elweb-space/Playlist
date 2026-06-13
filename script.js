@@ -82,12 +82,9 @@ function showPlaylist(key){
 
     });
 
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
+    playlistPage.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
     });
 
 }
