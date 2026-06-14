@@ -2,9 +2,9 @@ const playlists = {
 
 happy:{
 
-title:"😊 Happy Flight",
+title:"😊 Takeoff",
 
-description:"Songs to brighten your day.",
+description:"Happy songs to brighten your day.",
 
 songs:[
 
@@ -26,9 +26,9 @@ link:"#"
 
 romantic:{
 
-title:"❤️ Romantic",
+title:"❤️ Cloud Nine",
 
-description:"Music for special moments.",
+description:"Feeling romantic?",
 
 songs:[
 
@@ -62,9 +62,9 @@ link:"#"
 
 study:{
 
-title:"📚 Study Mode",
+title:"📚 Autopilot",
 
-description:"Stay focused.",
+description:"For when it's time to stay focused.",
 
 songs:[
 
@@ -80,7 +80,7 @@ link:"#"
 
 dance:{
 
-title:"💃 Dance Floor",
+title:"💃 Aerobatics",
 
 description:"Move your feet!",
 
@@ -98,9 +98,45 @@ link:"#"
 
 sports:{
 
-title:"🏃 Sports",
+title:"🏃 Full throttle!",
 
-description:"Workout energy.",
+description:"For some sportive and workout energy.",
+
+songs:[
+
+{
+title:"Run Faster",
+artist:"Artist",
+link:"#"
+}
+
+]
+
+}
+
+travel:{
+
+title:"✈️ Flight Plan",
+
+description:"Songs for the traveller in you (even if it's a cab ride :p)",
+
+songs:[
+
+{
+title:"Run Faster",
+artist:"Artist",
+link:"#"
+}
+
+]
+
+}
+
+slow:{
+
+title:"✨ Glide",
+
+description:"Time to go slow and melodious",
 
 songs:[
 
