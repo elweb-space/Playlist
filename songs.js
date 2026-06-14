@@ -44,7 +44,7 @@ link:"#"
 
 sleep:{
 
-title:"😴 Night Flight",
+title:"✨ Glide",
 
 description:"Relax and drift away.",
 
@@ -112,7 +112,7 @@ link:"#"
 
 ]
 
-}
+},
 
 travel:{
 
@@ -130,13 +130,13 @@ link:"#"
 
 ]
 
-}
+},
 
-slow:{
+religious:{
 
-title:"✨ Glide",
+title:"🙏 Divine Horizon",
 
-description:"Time to go slow and melodious",
+description:"Faith and grace above all",
 
 songs:[
 
