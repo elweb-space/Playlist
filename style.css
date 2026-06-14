@@ -370,7 +370,7 @@ button:hover{
 
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
-    gap:30px;
+    gap:25px;
 
     padding:40px 10%;
 
@@ -476,25 +476,15 @@ button:hover{
 
 .playButton{
 
-    padding: 8px 16px;
+    padding: 3px 8px;
 
-    font-size: 14px;
+    font-size: 11px;
 
-    border: none;
+    min-width: 45px;
 
-    border-radius: 18px;
+    height: 24px;
 
-    cursor: pointer;
-
-    background: #28d6b2;
-
-    color: black;
-
-    font-weight: 500;
-
-    transition: 0.25s;
-
-    min-width: 80px;
+    border-radius: 12px;
 
 }
 
