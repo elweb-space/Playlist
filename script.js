@@ -34,7 +34,6 @@ Object.keys(playlists).forEach(key => {
         card.innerHTML = `
             <div class="songInfo">
                 <h3>${song.title}</h3>
-                <p>${song.artist}</p>
             </div>
         
             <button class="playButton">
@@ -169,10 +168,6 @@ missionButton.onclick=()=>{
         <br><br>
 
         <strong>${chosenSong.title}</strong>
-
-        <br>
-
-        ${chosenSong.artist}
 
         <br><br>
 
