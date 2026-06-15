@@ -9,16 +9,29 @@ description:"Happy songs to brighten your day.",
 songs:[
 
 {
-title:"Song One",
+title:"Ini Dooram",
 artist:"Artist",
-link:"https://open.spotify.com/track/5cgKosPPj5Cs9a2JQufUc1?si=f2fdf77053e34af5"
+link:"https://open.spotify.com/track/2lR0p35d2aYJYSFYE0tsfQ?si=bc6c5d453e6841e9"
 },
 
 {
-title:"Song Two",
+title:"A Sky Full of Stars",
 artist:"Artist",
-link:"#"
+link:"https://open.spotify.com/track/0FDzzruyVECATHXKHFs9eJ?si=643966e142b54c7c"
+},
+  
+{
+title:"Kaantha",
+artist:"Artist",
+link:"https://open.spotify.com/track/6bgQgfK4hxLqEWgSgxwKoH?si=705e951293364fd3"
+},
+
+{
+title:"Paranne",
+artist:"Artist",
+link:"https://open.spotify.com/track/6VJPFl2Jf1tnGhwaTgv04v?si=0d5f879e3a624111"
 }
+  
 
 ]
 
